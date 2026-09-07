@@ -37,7 +37,7 @@ Processing UPI payment of Rs. 250...
 
 ================ TICKET ================
 Booking ID : 1001
-Customer   : Kartik Gupta
+Customer   : Rishabh rawat
 Movie      : Avengers: Endgame
 Screen     : 1
 Start Time : 10:00 AM
