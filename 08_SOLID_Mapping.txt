@@ -1,4 +1,4 @@
-STEP G – SOLID MAPPING
+SOLID MAPPING
 
 1. Single Responsibility Principle (SRP)
 Applied to:
