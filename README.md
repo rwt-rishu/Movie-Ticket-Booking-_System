@@ -43,8 +43,3 @@ architecture, modular design, OOP principles, and SOLID design principles**.
 
 The application is divided into multiple classes and components,
 with each component responsible for a specific part of the booking process.
-
-                         │
-              ┌──────────┼──────────┐
-              ▼          ▼          ▼
-            UPI        Card        Cas
