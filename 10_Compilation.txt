@@ -1,0 +1,18 @@
+HOW TO RUN
+
+1. Put every file from 07_C++_Code into the same folder.
+2. Open terminal in that folder.
+3. Compile ONLY main.cpp because main.cpp includes the class .cpp files.
+
+Command:
+g++ -std=c++17 main.cpp -o movie_booking
+
+Run:
+./movie_booking
+
+Windows:
+movie_booking.exe
+
+The design intentionally follows the assignment rule:
+- one class per file
+- no header files

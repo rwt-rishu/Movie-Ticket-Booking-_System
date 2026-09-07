@@ -1,0 +1,68 @@
+STEP F – SEQUENCE DIAGRAM
+Use case: Customer books 1 seat and pays by UPI.
+
+@startuml
+actor Customer as customer
+participant BookingService as bookingService
+participant Show as show
+participant ShowSeat as showSeat
+participant PriceCalculator as priceCalculator
+participant Payment as payment
+participant Booking as booking
+participant TicketPrinter as ticketPrinter
+
+customer -> bookingService : chooseShow(show)
+activate bookingService
+
+bookingService -> show : getShowSeats()
+activate show
+show --> bookingService : showSeats
+deactivate show
+
+customer -> bookingService : selectSeat(seatNumber)
+bookingService -> showSeat : isAvailable()
+activate showSeat
+showSeat --> bookingService : true
+deactivate showSeat
+
+bookingService -> showSeat : book()
+activate showSeat
+showSeat --> bookingService : booked
+deactivate showSeat
+
+bookingService -> priceCalculator : calculate(selectedSeats)
+activate priceCalculator
+priceCalculator --> bookingService : totalAmount
+deactivate priceCalculator
+
+create payment
+bookingService -> payment : <<create>> UpiPayment
+activate payment
+bookingService -> payment : pay(totalAmount)
+payment --> bookingService : paymentSuccess
+deactivate payment
+
+alt payment successful
+  create booking
+  bookingService -> booking : <<create>> Booking(...)
+  activate booking
+  bookingService -> booking : confirm()
+  booking --> bookingService : confirmed
+  deactivate booking
+
+  bookingService -> ticketPrinter : printTicket(booking)
+  activate ticketPrinter
+  ticketPrinter --> bookingService : ticket printed
+  deactivate ticketPrinter
+
+  bookingService --> customer : ticket / booking ID
+else payment failed
+  bookingService -> showSeat : cancel()
+  activate showSeat
+  showSeat --> bookingService : available
+  deactivate showSeat
+  bookingService --> customer : payment failed; booking rejected
+end
+
+deactivate bookingService
+@enduml

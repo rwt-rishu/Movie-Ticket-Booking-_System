@@ -1,0 +1,63 @@
+DEMO RUN
+
+===== MOVIE TICKET BOOKING =====
+1. List movies
+2. List shows for a movie
+3. Display seat layout
+4. Book ticket
+5. Cancel booking
+6. Exit
+Choose: 1
+
+===== MOVIES CURRENTLY PLAYING =====
+1. Avengers: Endgame | English | 181 min
+2. 3 Idiots | Hindi | 170 min
+3. Stree 2 | Hindi | 149 min
+
+Choose: 4
+Choose show: 1
+
+Seat 1 [SILVER] : AVAILABLE
+Seat 2 [SILVER] : AVAILABLE
+Seat 3 [SILVER] : AVAILABLE
+...
+Seat 8 [PLATINUM] : AVAILABLE
+Seat 9 [PLATINUM] : AVAILABLE
+Seat 10 [PLATINUM] : AVAILABLE
+
+Number of seats: 1
+Enter seat number 1: 5
+
+Payment Method
+1. UPI
+2. Card
+3. Cash
+Choose: 1
+Processing UPI payment of Rs. 250...
+
+================ TICKET ================
+Booking ID : 1001
+Customer   : Kartik Gupta
+Movie      : Avengers: Endgame
+Screen     : 1
+Start Time : 10:00 AM
+Seats      : 5
+Total      : Rs. 250.00
+Status     : CONFIRMED
+========================================
+
+EDGE CASE 1 – BOOK ALREADY BOOKED SEAT
+Enter seat 5 again:
+Seat 5 is already BOOKED. Booking rejected.
+
+EDGE CASE 2 – FAILED PAYMENT
+If payment is made with a simulated failed payment implementation:
+Payment FAILED. Booking not confirmed; seats released.
+
+EDGE CASE 3 – CANCEL BOOKING
+Enter booking ID: 1001
+Booking 1001 cancelled. Seats are AVAILABLE again.
+
+EDGE CASE 4 – INVALID INPUT
+Invalid seat number: 99. Booking rejected.
+Invalid menu choice. Please try again.

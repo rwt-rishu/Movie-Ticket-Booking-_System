@@ -1,0 +1,26 @@
+STEP D – RELATIONSHIPS
+
+Pair | Choice | Lifetime justification
+
+Cinema — Screen | Composition | A Cinema owns its Screen objects. If the Cinema is destroyed, the screens belonging to it are destroyed as part of the cinema.
+
+Screen — Seat | Composition | A Screen owns its physical Seat objects. If the Screen is destroyed, those physical seats no longer exist as seats of that screen.
+
+Show — Movie | Aggregation | A Show refers to an existing Movie. Destroying the Show does not destroy the Movie because the same Movie can be used by other Shows.
+
+Show — Screen | Association | A Show uses a Screen for a particular screening. The Screen exists independently and can host other Shows.
+
+Show — ShowSeat | Composition | ShowSeat objects represent seat status specifically for one Show. If the Show is destroyed, its ShowSeat status objects are destroyed with it.
+
+Booking — Customer | Association | A Customer exists independently of a Booking. Destroying a Booking does not destroy the Customer.
+
+Booking — ShowSeat | Aggregation | A Booking stores references to existing ShowSeat objects. The ShowSeat belongs to the Show and must continue to exist independently of a Booking.
+
+Booking — Payment | Association | Payment is a transaction object used by the booking flow. The Booking does not own the payment implementation's lifetime as a physical/domain part.
+
+Payment — UPIPayment | Inheritance | UPIPayment is a specialized kind of Payment and must be usable through a Payment reference/pointer.
+
+BookingService — Booking | Association | BookingService creates and coordinates Bookings but does not represent the lifetime of Booking objects as an owned physical part.
+
+Important note:
+The assignment's provided hints explicitly identify Cinema→Screen, Screen→Seat and Show→ShowSeat as composition; Show→Movie and Booking→ShowSeat as aggregation; and Customer→BookingService as association. The design above follows those lifetime ideas while also distinguishing Show→Screen as a use relationship.

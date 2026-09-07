@@ -1,0 +1,28 @@
+STEP B – NOUN–VERB ANALYSIS
+
+Important nouns:
+customer, cinema, movie, show, screen, seat, seat layout, booking, payment, UPI, card, cash, ticket, booking ID, amount, seat type, status, time.
+
+Important verbs:
+see/list, choose, display, book, reject, price/calculate, pay, confirm, print, cancel, release.
+
+Noun–Verb Table
+
+Noun found | Keep as class? | Reason
+Movie | Yes | Has its own identity and data: title, language and duration.
+Seat | Yes | Represents one physical seat with number, type and price.
+Seat layout | No | It is a view of a Show's seats, so it is represented by a print method.
+Screen | Yes | Represents one auditorium and owns its physical seats.
+Cinema | Yes | Represents the theatre and owns its screens.
+Show | Yes | Represents one screening of a movie on a screen at a particular time.
+ShowSeat | Yes | Represents the status of one physical seat for one particular show.
+Customer | Yes | Represents the customer whose booking is being made.
+Booking | Yes | Represents a booking with ID, selected seats, amount and status.
+Payment | Yes | It is a payment contract and is naturally modeled as an abstract class.
+UPIPayment | Yes | Concrete implementation of UPI payment.
+CardPayment | Yes | Concrete implementation of card payment.
+CashPayment | Yes | Concrete implementation of cash payment.
+Ticket | No | The required output is printed by TicketPrinter; a separate persistent Ticket class is unnecessary.
+PriceCalculator | Yes | Has one responsibility: calculate booking price.
+BookingService | Yes | Orchestrates the booking flow.
+Cinema/main menu | Yes (menu logic) | Handles console interaction and input reading; it should not contain business rules.
