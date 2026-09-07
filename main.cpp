@@ -75,7 +75,7 @@ void listShowsForMovie(const vector<Movie>& movies, vector<Show>& shows) {
         return;
     }
 
-    Movie* chosen = &movies[movieChoice - 1];
+    const Movie* chosen = &movies[movieChoice - 1];
     cout << "\nShows for " << chosen->getTitle() << ":\n";
 
     bool found = false;
